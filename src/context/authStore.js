@@ -4,12 +4,7 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 export const useAuthStore = create(persist(
     (set) => ({
         authenticated: false,
-        login: (params) => set(() => {
-          //login logic;
-          return {
-              authenticated: true
-          }
-        }),
+        login: (authenticated) => set({authenticated}),
         logout: () => set({ authenticated: false }),
       }),
       {
